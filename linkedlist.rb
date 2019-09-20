@@ -25,7 +25,7 @@ print_values(node3)
 
 puts "-----"
 
-revlist = reverse_list(node3)
+
 
 class Stack < LinkedListNode
     attr_reader :data
@@ -36,7 +36,9 @@ class Stack < LinkedListNode
 
     # Push a value onto the stack
     def push(value)
-        # IMPLEMENT ME!
+        #implement me
+        @data = LinkedListNode.new(value, @data)
+
     end
 
     # Pop an item off the stack.
@@ -44,17 +46,23 @@ class Stack < LinkedListNode
     # stack and return the value to the user
     def pop
         # I RETURN A VALUE
+        puts @data.value
+        @data = @data.next_node
     end
-
-    def reverse_list(list)
     # ADD CODE HERE
+end
 
+ def reverse_list(list)
+    # ADD CODE HERE
+        newstack = Stack.new
       while list
           # ADD CODE HERE
+          newstack.push(list.value)
           list = list.next_node
       end
-    end
+      return newstack.data
+  end
 
-    # ADD CODE HERE
+revlist = reverse_list(node3)
 
-end
+print_values(revlist)
